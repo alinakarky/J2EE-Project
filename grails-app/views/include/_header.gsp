@@ -15,6 +15,7 @@
     <asset:javascript src="bootstrap.js"/>
     <asset:javascript src="script.js"/>
     <asset:stylesheet src="font-awesome.min.css"/>
+    <asset:javascript src="jquery.min.js"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
@@ -30,13 +31,13 @@
             <li><a href="../category/showCategory">Category</a></li>
         </ul>
         <ul class="nav navbar-nav">
-            <li><a href="showProduct">Products</a></li>
+            <li><a href="../product/showProduct">Products</a></li>
         </ul>
         <ul class="nav navbar-nav">
-            <li><a href="showCustomer">Customers</a></li>
+            <li><a href="../customer/showCustomer">Customers</a></li>
         </ul>
         <ul class="nav navbar-nav">
-            <li><a href="showOrder">Orders</a></li>
+            <li><a href="../order/showOrder">Orders</a></li>
         </ul>
     </div>
 </nav>

@@ -1,7 +1,9 @@
 <g:render template="../include/header" />
 <div class="container">
+
 <g:if test="${flash.message}">
-    <div class="alert alert-error" style="display: block">${flash.message}</div>
+
+    <div class="alert-success" style="display: block">${flash.message}</div>
 </g:if>
 
     <div class="row">
@@ -10,16 +12,16 @@
 <g:form class="form-group" action="addCategories">
 
    <label>Category</label> <br>
-    <input type="text" class="form-control" name="catName" id="catName" placeholder="Category" value="<g:if test="${catEdit}">
-    ${catEdit?.catName}</g:if>"/>
+    <input type="text" class="form-control" name="catName" id="catName" placeholder="Category" value="<g:if test="${catEdit}">${catEdit?.catName}</g:if>"/>
   <br><label>Description</label><br>
     <input type="textarea" class="form-control" name="catDesc" id="catDesc" placeholder="Description" value="<g:if test="${catEdit}">${catEdit?.catDesc}</g:if>"/>
 
     <br>
     <g:if test="${catEdit}">
+
         <input type="hidden" value="${catEdit?.id}" name="catId"/>
     </g:if>
-    <g:submitButton class="btn-sm btn-primary" name="add" value="Add" style="float:right "/>
+    <g:submitButton class="btn-sm btn-primary" name="Action" id="Action" value="Save" style="float:right "/>
 
 </g:form>
 </div>
@@ -48,7 +50,9 @@
                 </td>
 
                 <td>
-  <a href="${createLink(action: 'editCategory',params: [categoryId:category.id])}"> <span class="glyphicon glyphicon-edit"></span> </a> &nbsp;
+<a href="${createLink(action: 'editCategory',params: [categoryId:category.id])}"> <span class="glyphicon glyphicon-edit"></span> </a>
+  %{--<a class="btn btn-primary" id="btnEdit"> <span class="glyphicon glyphicon-edit"></span> </a>--}%
+  &nbsp;
                     <a id="delete" onclick="return (confirmDelete())" href="${createLink(action: 'deleteCategory',params: [categoryId:category.id])}"> <span class="glyphicon glyphicon-trash"></span> </a>
 
                 </td>
@@ -59,4 +63,11 @@
 </div>
 </div>
 </body>
+<script>
+<g:if test="${catEdit}">
+    {
+        $('#Action').val('Update');
+    }
+    </g:if>
+</script>
 </html>

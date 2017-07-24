@@ -57,7 +57,8 @@ def editCategory()
 {
 
     def catEdit = Category.get(params.categoryId)
-    render(view: "category" ,model:[catEdit:catEdit])
+    def listOfAllCategory = Category.listOrderById(order: 'desc')
+    render(view: "category" ,model:[catEdit:catEdit,listOfAllCategory:listOfAllCategory])
 
 }
 
